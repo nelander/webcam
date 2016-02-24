@@ -1,6 +1,6 @@
 <?php
 	//
-	// Lese Tabelle 'webcams' und gebe ein zufaelliger Webcam aus der Tabelle aus
+	// Lese MySQL-Tabelle 'webcams' und gebe ein zufaelliger Webcam aus der Tabelle aus
 	//
 
 	// Zugangsdaten vom MySQL-Server
