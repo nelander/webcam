@@ -1,2 +1,2 @@
 # webcam
-A webcam switcher for my private home page
+Shows a random webcam on my private home page
