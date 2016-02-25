@@ -23,17 +23,22 @@
 	// Ein zufaelliger Webcam auswaehlen und aus der Tabelle 'webcams' lesen
 	$webcam_index = mt_rand(1,$anzahl);		// Zufallsgenerator
 	
-	$sql = "SELECT * FROM `webcams` WHERE `webcams_id` = '" . $webcam_index . "'";
+	// Alle Datenzeilen aus der Tabelle 'webcams' lesen
+	$sql = "SELECT * FROM `webcams` ORDER BY `webcams_id`";
 	$ergebnis = $db->query($sql);
-	while($zeile = $ergebnis->fetch_assoc()) {
-		$kommentar  = htmlspecialchars($zeile["webcams_comment"]);
-		$webadresse = $zeile["webcams_url"];
+	
+	// Webcam mit der Nummer entsprechend Zufallsgenerator auswählen und ausgeben
+	$nr = 0;
+	while ($zeile = $ergebnis->fetch_assoc()) {
+		$nr = $nr + 1;
+		if ($nr == $webcam_index) {
+			$kommentar  = htmlspecialchars($zeile["webcams_comment"]);
+			$webadresse = $zeile["webcams_url"];
+			echo '<img src="' . $webadresse . '" border="0" width="569" height="370">';
+			echo '<br \>' . $kommentar;
+		}
 	}
-	
-	// HTML generieren
-	echo '<img src="' . $webadresse . '" border="0" width="569" height="370">';
-	echo '<br \>' . $kommentar;
-	
+
 	// Verbindung zur Datenbank beenden
 	$db->close();
 ?>

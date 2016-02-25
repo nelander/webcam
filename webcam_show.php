@@ -1,63 +1,38 @@
 <?php
-$monate = array(
-		"Januar",
-		"Februar",
-		"M&auml;rz",
-		"April",
-		"Mai",
-		"Juni",
-		"Juli",
-		"August",
-		"September",
-		"Oktober",
-		"November",
-		"Dezember");
 echo "<font size=\"5\" face=\"Arial\">";
+
 //
-// Alle jpg-files die mit 'kalender' beginnen aus dem Verzeichnis    
-// auslesen und in den Array $bilderdateinamen abspeichern  
+// Alle Webcams aus der MySQL-Tabelle 'webcams' werden zusammen angezeigt
 //
-$verzeichnis = ".";
-if (is_dir($verzeichnis))
-{
-    if ( $handle = opendir($verzeichnis) )
-    {
-        while (($file = readdir($handle)) !== false)
-        {
-            // Pruefe, ob ein File kalender___.jpg vorliegt
-            if ( filetype( $file) == "file"
-    			AND substr( $file, 0, 8 ) == "kalender"
-    			AND substr( $file, -4 ) == ".jpg" )
-            {
-                // Dateiname wird im Array gespeichert
-                $bilderdateinamen[] = $file;
-            }
-        }
-        closedir($handle);
-    }
+
+// Zugangsdaten der MySQL-Datenbank
+require_once 'Zugangsdaten.php';
+
+// Verbindungsaufbau mit der der MySQL-Datenbank
+$db = new MySQLi($db_server, $db_benutzer, $db_passwort, $db_name);
+if ($db->connect_error) {
+	die( "Error: (" . $db->connect_errno . ") " . $db->connect_error );
 }
-//
-// Der Array wird nach Dateinamen sortiert
-//
-sort($bilderdateinamen);
-//
-// In eine Schleife ueber alle Array-Eintraege die Bilder ausgeben
-//
+$sql = "SET NAMES 'utf8'";
+$db->query($sql);
+
+// Alle Datenzeilen aus der Tabelle 'webcams' lesen und ausgeben
+$sql = "SELECT * FROM `webcams` ORDER BY `webcams_id`";
+$ergebnis = $db->query($sql);
+
 echo "<hr />";		// Trennlinie ausgeben
-$index = 0;
-foreach ( $bilderdateinamen AS $dateiname )
-{
-	$exif = exif_read_data($dateiname, 'ANY_TAG', true, true);
-	echo "<img src=\"$dateiname\" ";
-    echo $exif['COMPUTED']['html'];
-    echo ' > ';
-    
-    echo "&nbsp;&nbsp;&nbsp; $monate[$index]";
-    
-    echo "<hr />";	// Trennlinie ausgeben
-    $index = $index + 1;
+
+// Webcams ausgeben
+while ($zeile = $ergebnis->fetch_assoc()) {
+	$bezeichn	= $zeile["webcams_comment"];
+	$url		= $zeile["webcams_url"];
+	echo '<img src="' . $url . '" border="0" width="569" height="370">';
+	echo '<br \>' . $bezeichn;
+	echo "<hr />";	// Trennlinie ausgeben
 }
-$jahr = date("Y");
+ 
+// Verbindung zur Datenbank beenden
+$db->close();
+
 echo "</font>";
-echo "<p><font size=\"1\" face=\"Arial\">&copy; Bengt Nelander " . $jahr . "</font></p>";
 ?>

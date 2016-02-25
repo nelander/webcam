@@ -21,7 +21,7 @@
 	//
 	
 	// PHP Fehlermeldungen (1 um das Formular zu testen) anzeigen.
- 	error_reporting(1); // (0/1)
+ 	error_reporting(0); // (0/1)
 
 	// Sprungadressen
 	$Ruecksprung = "index.php";
@@ -58,7 +58,7 @@
 	echo '<td width="75"><p align="center">&nbsp;</p></td>';
 	echo '</tr>';
 	
-	// Kalendereintraege lesen und in eine HTML-Tabelle ausgeben
+	// Kalendereintraege in eine HTML-Tabelle ausgeben
 	while ($zeile = $ergebnis->fetch_assoc()) {
 		$id			= $zeile["webcams_id"];
 		$bezeichn	= $zeile["webcams_comment"];
@@ -85,7 +85,7 @@
 	echo '<p><a href="' . $Zeigen		. '">Alle Webcams zeigen</a></p>';
 	
 	// Link zur Erfassungsmaske
-	echo '<p><a href="' . $Erfassen		. '">Neue Webcams erfassen</a></p>';
+	echo '<p><a href="' . $Erfassen		. '">Neuer Webcam erfassen</a></p>';
 	
 	// Ruecksprung
 	echo '<p><a href="' . $Ruecksprung	. '">Zur&uuml;ck</a></p>';

@@ -2,7 +2,7 @@
 <html lang="de">
  	<head>
   		<meta charset="UTF-8">
-  		<title>Kalendereintrag loeschen</title>
+  		<title>Webcam loeschen</title>
 		<style>
 	  		body {
 	   			font-family: Verdana, Sans-Serif;
@@ -14,15 +14,15 @@
 	
 	<?php
 	//
-	// Kalendereintragung aus der MySQL-Datenbanktabelle 'kalender' löschen
-	// Aufruf: ..../kalender_delete.php?id=<id>   (<id> steht fuer das kalender_id)
+	// Webcam aus der MySQL-Datenbanktabelle 'webcams' loeschen
+	// Aufruf: ..../webcam_delete.php?id=<id>   (<id> steht fuer das webcams_id)
 	//
 	
 	// PHP Fehlermeldungen (1 um das Formular zu testen) anzeigen.
  	error_reporting(0); // (0/1)
 
 	// Sprungadressen
-	$Ruecksprung = "kalender_pflege.php";
+	$Ruecksprung = "webcam_pflege.php";
 	
 	// Parameter "id" auslesen
 	$id = $_GET["id"];
@@ -37,10 +37,10 @@
 	}
 	
 	// Die Zeile mit der angegebenen Id aus der Tabelle 'kalender' loeschen 
-	$sql = "DELETE FROM `kalender` WHERE `kalender_id`=" . $id;
+	$sql = "DELETE FROM `webcams` WHERE `webcams_id`=" . $id;
 	if ($db->query($sql) === TRUE) {
-		echo '<p>Der Kalendereintrag mit der Id = ' . $id . 
-			' wurde aus dem Kalender gel&ouml;scht</p>' . 
+		echo '<p>Der Webcam mit der Id = ' . $id . 
+			' wurde aus dem Webcam-Tabelle gel&ouml;scht</p>' . 
 			'<p><a href="' . $Ruecksprung . '">Zur&uuml;ck</a><p>';
 	} else {
 		echo '<p>Fehler: ' . mysqli_error($db) . '!!!<p>';
