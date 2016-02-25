@@ -51,7 +51,7 @@
 	// Spaltenueberschriften
  	echo '<table width="1000" cellspacing="0" bgcolor="#94D7F8" border="1" >';
 	echo '<tr>';
-	echo '<td width="45"><p align="center"><b>Id</b></p></td>';
+//	echo '<td width="45"><p align="center"><b>Id</b></p></td>';
 	echo '<td width="300"><p align="left"><b>&nbsp;Bezeichnung</b></p></td>';
 	echo '<td width="505"><p align="left"><b>&nbsp;URL</b></p></td>';
 	echo '<td width="75"><p align="center">&nbsp;</p></td>';
@@ -65,7 +65,7 @@
 		$url		= $zeile["webcams_url"];
 		
 		echo '<tr>';
-		echo '<td width="45"><p align="center">' . $id . '</p></td>';
+//		echo '<td width="45"><p align="center">' . $id . '</p></td>';
 		echo '<td width="300"><p align="left">&nbsp;' . $bezeichn . '</p></td>';
 		echo '<td width="505"><p align="left">&nbsp;' . $url . '</p></td>';		
 		echo '<td width="75"><p align="center"><a href="' . $Loeschen . '?id=' . $id .

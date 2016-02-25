@@ -24,7 +24,7 @@ echo "<hr />";		// Trennlinie ausgeben
 
 // Webcams ausgeben
 while ($zeile = $ergebnis->fetch_assoc()) {
-	$bezeichn	= $zeile["webcams_comment"];
+	$bezeichn	= htmlspecialchars($zeile["webcams_comment"]);
 	$url		= $zeile["webcams_url"];
 	echo '<img src="' . $url . '" border="0" width="569" height="370">';
 	echo '<br \>' . $bezeichn;
