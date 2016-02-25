@@ -35,7 +35,7 @@
 			$kommentar  = htmlspecialchars($zeile["webcams_comment"]);
 			$webadresse = $zeile["webcams_url"];
 			echo '<img src="' . $webadresse . '" border="0" width="569" height="370">';
-			echo '<br \>' . $kommentar;
+			echo '<br \><a href="webcam_pflege.php">' . $kommentar . '</a>';
 		}
 	}
 
