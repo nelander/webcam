@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+  <meta charset="UTF-8">
+  <title>Webcam erfassen</title>
+
+  <style>
+  body {
+   background: #94D7F8;
+   font-family: Verdana, Sans-Serif;
+   font-size: 14px;
+   }
+
+  </style>
+
+ </head>
+<body>
+
 <?php
 echo "<font size=\"5\" face=\"Arial\">";
 
@@ -36,3 +54,6 @@ $db->close();
 
 echo "</font>";
 ?>
+
+</body>
+</html>
