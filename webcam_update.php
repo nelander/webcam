@@ -15,14 +15,14 @@
 	<?php
 	//
 	// Webcam-Eintragung aus der MySQL-Datenbanktabelle 'webcams' aendern
-	// Aufruf: ..../webcam_update.php?id=<id>   (<id> steht fuer das webcams_id)
+	// Aufruf: ..../webcam/webcam_update.php?id=<id>   (<id> steht fuer das webcams_id)
 	//
 	
 	// PHP Fehlermeldungen (1 um das Formular zu testen) anzeigen.
  	error_reporting(0); // (0/1)
 
 	// Sprungadressen
-	$Ruecksprung = "webcam_pflege.php";
+	$Ruecksprung = "../webcam/webcam_pflege.php";
 	
 	// Parameter "id" auslesen
 	$id = $_GET["id"];

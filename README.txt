@@ -4,9 +4,10 @@ webcam.php
 ----------
 Die MySQL-Tabelle 'webcams' beinhaltet die URL und eine kurze Beschreibung fuer mehrere
 Webcams. Das Programm ermittelt zuerst die Anzahl der Tabellenzeilen und benutz danach
-ein Zufallsgenerator um eine Zeilen-Id zu ermitteln. Die entsprechende Tabellenzeile
+ein Zufallsgenerator um ein Zeilen-Index zu ermitteln. Die entsprechende Tabellenzeile
 wird aus der Tabelle gelesen und die Webcam-Adresse zusammen mit der Beschreibung dazu
-wird in HTML-Form als Bild bzw. Text ausgegeben.
+wird in HTML-Form als Bild bzw. Text ausgegeben. Die Zeile mit der Beschreibung dient
+dabei auch als Hyperlink an die webcam_pflege.php
 
 webcam_pflege.php
 -----------------

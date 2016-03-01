@@ -45,7 +45,7 @@ error_reporting(0); // (0/1)
 
 // Ruecksprung - Nach dem absenden des Formulars,
 // gelangt der Benutzer über einen Link auf folgende Seite:
-$Ruecksprung = "webcam_pflege.php";
+$Ruecksprung = "../webcam/webcam_pflege.php";
 
 // Datum
 $bezeichn = isset($_POST["bezeichn"]) ? strip_tags(trim($_POST["bezeichn"])) : "";
@@ -104,7 +104,7 @@ if (isset($_POST["speichern_x"])) {
  if (implode("", $Fehler) == "") {
 
   // Verbindungsdaten fuer die MySQL-Datenbank
-  require_once 'Zugangsdaten.php';
+  require_once '../Zugangsdaten.php';
 
   // Verbindungsaufbau mit der Datenban
   $db = new MySQLi($db_server, $db_benutzer, $db_passwort, $db_name);

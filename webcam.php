@@ -4,7 +4,7 @@
 	//
 
 	// Zugangsdaten vom MySQL-Server
-	require_once 'Zugangsdaten.php';	
+	require_once '../Zugangsdaten.php';	
 	
 	// Verbindungsaufbau mit der Datenbank
 	$db = new MySQLi($db_server, $db_benutzer, $db_passwort, $db_name);
@@ -35,7 +35,7 @@
 			$kommentar  = htmlspecialchars($zeile["webcams_comment"]);
 			$webadresse = $zeile["webcams_url"];
 			echo '<img src="' . $webadresse . '" border="0" width="569" height="370">';
-			echo '<br \><a href="webcam_pflege.php">' . $kommentar . '</a>';
+			echo '<br \><a href="../webcam/webcam_pflege.php">' . $kommentar . '</a>';
 		}
 	}
 

@@ -15,20 +15,20 @@
 	<?php
 	//
 	// Webcam aus der MySQL-Datenbanktabelle 'webcams' loeschen
-	// Aufruf: ..../webcam_delete.php?id=<id>   (<id> steht fuer das webcams_id)
+	// Aufruf: ..../webcam/webcam_delete.php?id=<id>   (<id> steht fuer das webcams_id)
 	//
 	
 	// PHP Fehlermeldungen (1 um das Formular zu testen) anzeigen.
  	error_reporting(0); // (0/1)
 
 	// Sprungadressen
-	$Ruecksprung = "webcam_pflege.php";
+	$Ruecksprung = "../webcam/webcam_pflege.php";
 	
 	// Parameter "id" auslesen
 	$id = $_GET["id"];
 		
 	// Zugangsdaten der MySQL-Datenbank
-	require_once 'Zugangsdaten.php';
+	require_once '../Zugangsdaten.php';
 	
 	// Verbindungsaufbau mit der der MySQL-Datenbank
 	$db = new MySQLi($db_server, $db_benutzer, $db_passwort, $db_name);

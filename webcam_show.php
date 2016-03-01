@@ -24,7 +24,7 @@ echo "<font size=\"5\" face=\"Arial\">";
 //
 
 // Zugangsdaten der MySQL-Datenbank
-require_once 'Zugangsdaten.php';
+require_once '../Zugangsdaten.php';
 
 // Verbindungsaufbau mit der der MySQL-Datenbank
 $db = new MySQLi($db_server, $db_benutzer, $db_passwort, $db_name);

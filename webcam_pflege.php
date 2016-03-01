@@ -24,17 +24,17 @@
  	error_reporting(0); // (0/1)
 
 	// Sprungadressen
-	$Ruecksprung = "index.php";
-	$Loeschen    = "webcam_delete.php";
-	$Aendern     = "webcam_update.php";
-	$Erfassen	 = "webcam_insert.php";
-	$Zeigen		 = "webcam_show.php";
+	$Ruecksprung	= "../privat/index.php";
+	$Loeschen	= "../webcam/webcam_delete.php";
+	$Aendern	= "../webcam/webcam_update.php";
+	$Erfassen	= "../webcam/webcam_insert.php";
+	$Zeigen		= "../webcam/webcam_show.php";
 	
 	// Heading
 	echo "<h3>Webcam-Eintr&auml;ge anzeigen und pflegen</h3>";
 	
 	// Zugangsdaten der MySQL-Datenbank
-	require_once 'Zugangsdaten.php';
+	require_once '../Zugangsdaten.php';
 	
 	// Verbindungsaufbau mit der der MySQL-Datenbank
 	$db = new MySQLi($db_server, $db_benutzer, $db_passwort, $db_name);
