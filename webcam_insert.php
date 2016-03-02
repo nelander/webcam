@@ -79,7 +79,7 @@ $Formular = "
 <p>
  <label> URL:
 <span class='pflichtfeld'>&#10034; " . $Fehler["url"] . "</span><br>
-  <input type='text' name='url' value='" . $url . "' size='160' maxlength='200'>
+  <input type='text' name='url' value='" . $url . "' size='135' maxlength='200'>
  </label>
  <br><span class='hilfetext'> Webadresse des Webcams </span>
 </p>
